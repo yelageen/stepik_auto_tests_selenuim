@@ -1,5 +1,6 @@
 Общее
 
+https://habr.com/ru/post/248559 - Selenium для Python
 http://chromedriver.chromium.org/getting-started﻿
 ﻿https://www.guru99.com/selenium-tutorial.html — ﻿Туториал на английском, ориентирован на Java.﻿
 https://www.guru99.com/live-selenium-project.html — ﻿Можно попробовать писать автотесты для демо-сайта ﻿банка. Тоже Java.
