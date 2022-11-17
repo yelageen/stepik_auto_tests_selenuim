@@ -1,18 +1,20 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options as chromeOptions
 from selenium.webdriver.edge.options   import Options as edgeOptions
 
+# short language list for testing purposes
+langs = ['en-gb', 'es', 'fr', 'ru']
+
 def pytest_addoption(parser):
-    parser.addoption('--browser_name', action='store', default=None, help='Choose browser: chrome or edge')
-    parser.addoption('--language'    , action='store', default=None, help='Choose language: ru or en-gb')
+    parser.addoption('--language'    , action='store', default=None, help=f'Choose language: {langs}')
+    parser.addoption('--browser_name', action='store', default='chrome', help='Choose browser: chrome, edge')
 
 @pytest.fixture(scope='function')
 def browser(request):
     language = request.config.getoption('language')
-    if language != 'ru' and language != 'en-gb':
-        raise pytest.UsageError(f'--language should be ru or en-gb: [{language}]')
+    if language not in langs:
+        raise pytest.UsageError(f'--language should be from {langs}: [{language}]')
 
     browser_name = request.config.getoption('browser_name')
     if browser_name == 'chrome':
