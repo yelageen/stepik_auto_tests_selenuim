@@ -7,7 +7,7 @@ from selenium.webdriver.edge.options   import Options as edgeOptions
 langs = ['en-gb', 'es', 'fr', 'ru']
 
 def pytest_addoption(parser):
-    parser.addoption('--language'    , action='store', default=None, help=f'Choose language: {langs}')
+    parser.addoption('--language'    , action='store', default=None    , help=f'Choose language: {langs}')
     parser.addoption('--browser_name', action='store', default='chrome', help='Choose browser: chrome, edge')
 
 @pytest.fixture(scope='function')
